@@ -49,8 +49,20 @@ Output:
 }
 */
 
+// export function organizePricesByKey(arr) {
+//     const obj = {};
+//     for(const item of arr) {
+//         obj[item.id] = item.price;
+//     }
+//     return obj;
+// }
+
 export function organizePricesByKey(arr) {
-    return {};
+    const obj = {};
+    arr.forEach(item => {
+        obj[item.id] = item.price;
+    });
+    return obj;
 }
 
 /*
@@ -90,7 +102,11 @@ Output:
 */
 
 export function makeAHashMap(arr) {
-    return {};
+    let obj = {};
+    arr.forEach(item => {
+        obj[item.id] = item;
+    });
+    return obj;
 }
 
 
@@ -103,6 +119,31 @@ Output:
 }
 */
 
+
 export function countByCategory(arr) {
-    return {};
+    //create array of the categories
+    let categoryArray = [];
+    arr.forEach(item => categoryArray.push(item.category)); 
+    console.log(categoryArray);
+
+    const countsObject = {};
+    categoryArray.forEach(cat => { countsObject[cat] = (countsObject[cat] || 0) + 1; });
+    
+    return countsObject; 
+
+
 }
+
+
+
+// export function countByCategory(arr) {
+//     let fruitCount = (arr.filter(item => item.category === 'fruit')).length;
+//     let dairyCount = (arr.filter(item => item.category === 'dairy')).length;
+//     let otherCount = (arr.filter(item => item.category === 'other')).length;
+    
+//     return {
+//         fruit: fruitCount,
+//         other: otherCount,
+//         dairy: dairyCount, 
+//     };
+// }
